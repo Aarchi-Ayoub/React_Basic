@@ -1,0 +1,12 @@
+.fa-trash-o{
+    text-align: center;
+    color: red;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.fa-pencil{
+    color: orange;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+}

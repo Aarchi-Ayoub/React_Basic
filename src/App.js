@@ -1,24 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import Clients from './components/clients/Clients';
+import { Provider } from './components/clients/Context';
+import AddClient from './components/clients/AddClient';
+import Navbar from './components/clients/Navbar';
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import Apropos from './components/clients/Apropos';
+import NotFound from './components/clients/NotFound';
+import EditClient from './components/clients/EditClient';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider>
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Clients} />
+            <Route exact path='/Ajouter' component={AddClient} />
+            <Route exact path='/Apropos' component={Apropos} />
+            <Route exact path='/Editer/:id' component={EditClient} />
+            <Route component={NotFound} />
+          </Switch>      
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
